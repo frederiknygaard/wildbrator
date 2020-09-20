@@ -1,0 +1,15 @@
+{
+    "controls": [{
+            "text": "Slow"
+        },
+        {
+            "text": "Easy"
+        },
+        {
+            "text": "Fast"
+        },
+        {
+            "text": "Wild"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+@import "./1-settings/*.scss";
+@import "./2-tools/*.scss";
+@import "./3-generic/*.scss";
+@import "./4-elements/*.scss";
+@import "./5-components/*.scss";
+
+* {
+  font-size: 2rem;
+}
