@@ -1,7 +1,9 @@
 import React from "react";
 
 const ControlButton = (props) => (
-  <button onClick={props.clickHandler}>{props.text}</button>
+  <button className="button" onClick={props.onClick} data-value={props.value}>
+    {props.text}
+  </button>
 );
 
 export default ControlButton;

@@ -1,0 +1,12 @@
+.button {
+    background-color: white;
+    border-radius: 100%;
+    color: $color-dark-pink;
+    border: 0;
+    width: 6.4rem;
+    height: 6.4rem;
+    font-size: 1.6rem;
+    margin: 2rem 1rem;
+    flex-shrink: 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 .1rem 1rem 0;
+}

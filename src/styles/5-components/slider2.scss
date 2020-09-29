@@ -1,12 +1,7 @@
 .svg-wrapper {
-    transform: translate(-23px, -23px);
-    height: calc(100% + 46px);
-    width: calc(100% + 46px);
-}
-
-.flex-wrapper {
-    display: flex;
-    flex-flow: row nowrap;
+    transform: translate(-18px, -18px);
+    height: calc(100% + 36px);
+    width: calc(100% + 36px);
 }
 
 .single-chart {
@@ -22,8 +17,9 @@
 
 .circle-bg {
     fill: none;
-    stroke: #eee;
-    stroke-width: 3.8;
+    stroke: $color-dark-pink;
+    stroke-width: 4;
+    stroke-linecap: round;
 }
 
 .circle {
@@ -31,16 +27,13 @@
     stroke-width: 2.8;
     stroke-linecap: round;
     animation: progress 1s ease-out forwards;
+    stroke: transparent;
 }
 
 @keyframes progress {
     0% {
         stroke-dasharray: 0 100;
     }
-}
-
-.circular-chart.orange .circle {
-    stroke: url(#header-shape-gradient) #fff;
 }
 
 .circular-chart.green .circle {

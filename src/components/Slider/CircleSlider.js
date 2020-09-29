@@ -93,7 +93,7 @@ class CircleSlider extends EventEmitter {
   }
 
   _mouseMoveHandler(e) {
-    e.preventDefault();
+    //e.preventDefault();
     this._moveHandle(this._getRawAngle(e));
   }
 

@@ -6,9 +6,14 @@ const Controls = (props) => {
   const data = useContext(Context);
 
   return (
-    <div>
+    <div className="controls">
       {data.controls.map((control, index) => (
-        <ControlButton key={index} text={control.text} />
+        <ControlButton
+          onClick={props.clickHandler}
+          key={index}
+          value={control.text}
+          text={control.text}
+        />
       ))}
     </div>
   );

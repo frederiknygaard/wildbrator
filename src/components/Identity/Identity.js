@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "./Logo/Logo";
 
 const Identity = (props) => (
-  <div>
+  <div className="identity">
     <Logo />
   </div>
 );
