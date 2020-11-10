@@ -1,3 +1,8 @@
+:root {
+    --muffin-size: clamp(7rem, 25vw, 10rem);
+    --muffin-offset: clamp(-4.5rem, 5vw, -4.5rem);
+}
+
 .muffin {
     cursor: pointer;
 }
@@ -41,10 +46,10 @@
 
 .muffin {
     position: absolute;
-    right: -50px;
+    right: var(--muffin-offset);
     transform: translateY(-50%);
-    height: 100px;
-    width: 100px;
+    height: var(--muffin-size);
+    width: var(--muffin-size);
     border-radius: 100%;
     background: linear-gradient(180deg, #FFFFFF, #efefef);
     box-shadow: rgba(0, 0, 0, 0.2) 0 .1rem 1rem 0;

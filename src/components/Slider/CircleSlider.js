@@ -3,8 +3,7 @@ const EventEmitter = require("eventemitter3");
 class CircleSlider extends EventEmitter {
   constructor(target, options) {
     super();
-
-    // allow both "id" or "#id"
+    
     this.root = target;
     this.outputAngle = 0;
 

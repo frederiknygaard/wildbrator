@@ -1,63 +1,40 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import BannerAd from './components/BannerAd/BannerAd';
+import Identity from './components/Identity/Identity';
+import Slider from './components/Slider/Slider';
+import Controls from './components/Controls/Controls';
+import Context, { controls } from './context/data';
 
-import BannerAd from "./components/BannerAd/BannerAd";
-import Identity from "./components/Identity/Identity";
-import Slider from "./components/Slider/Slider";
-import Controls from "./components/Controls/Controls";
-import Context from "./context/data";
-import data from "../data.json";
+console.log(Context)
 
 class App extends Component {
   state = {
-    controls: [],
     angle: 0,
+    controls,
+    currentMood: null
   };
 
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.setState({
-      controls: data.controls,
-    });
+  selectMood(e) {
+    let currentMood = e.target.dataset.value;
+    currentMood = this.state.currentMood != currentMood ? currentMood : null;
+    this.setState({ currentMood })
+    //console.log(mood)
   }
 
-  selectMood(e) {
-    let angle = 0;
-
-    switch (e.target.dataset.value) {
-      case "Slow": {
-        angle = 40;
-        break;
-      }
-      case "Easy": {
-        angle = 120;
-        break;
-      }
-      case "Fast": {
-        angle = 200;
-        break;
-      }
-      case "Wild": {
-        angle = 280;
-        break;
-      }
-      default: {
-        angle = 0;
-        break;
-      }
-    }
-
-    console.log(angle);
-
-    this.setState({ angle });
+  setAngle(angle) {
+    console.log(angle)
+    //this.setState({ angle })
+    //console.log(angle)
   }
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="container">
+      <div className='wrapper'>
+        <div className='container'>
           <Context.Provider
             value={{
               controls: this.state.controls,
@@ -65,8 +42,8 @@ class App extends Component {
           >
             <BannerAd />
             <Identity />
-            <Slider angle={this.state.angle} />
-            <Controls clickHandler={this.selectMood.bind(this)} />
+            <Slider angle={this.state.angle} setAngle={this.setAngle.bind(this)} />
+            <Controls clickHandler={this.selectMood.bind(this)} currentMood={this.state.currentMood} />
           </Context.Provider>
         </div>
       </div>

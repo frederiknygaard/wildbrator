@@ -9,19 +9,23 @@ const options = {
 };
 
 const Slider = (props) => {
+
+  const [ angle, setAngle ] = useState(0);
+  
   useEffect(() => {
     const element = document.querySelector("#slider");
-
     const cs = new CircleSlider(element, options);
 
-    const targetDiv = document.getElementById("angle");
+    cs.on("sliderMove", (angle) => {
+      setAngle(angle);
+      props.setAngle(angle);
+    });
 
-    cs.on("sliderMove", (angle) => {});
+    cs.on("sliderUp", (angle) => {
+    });
 
-    cs.on("sliderUp", (angle) => {});
-
-    cs.setAngle(props.angle);
-  });
+    // cs.setAngle(props.angle);
+  }, []);
 
   return (
     <div className="slider">
@@ -39,7 +43,7 @@ const Slider = (props) => {
             />
             <path
               className="circle"
-              strokeDasharray={props.angle + ",100"}
+              strokeDasharray={angle + ",100"}
               d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
             />
           </svg>

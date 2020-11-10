@@ -1,7 +1,7 @@
 import React from "react";
 
-const ControlButton = (props) => (
-  <button className="button" onClick={props.onClick} data-value={props.value}>
+const ControlButton = ({isActive, ...props}) => (
+  <button className={isActive ? 'button is-active' : 'button'} onClick={props.onClick} data-value={props.value}>
     {props.text}
   </button>
 );

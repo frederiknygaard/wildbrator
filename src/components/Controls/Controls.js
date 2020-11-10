@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import ControlButton from "./ControlButton/ControlButton";
 import Context from "../../context/data";
 
-const Controls = (props) => {
+const Controls = ({currentMood, ...props}) => {
   const data = useContext(Context);
 
   return (
@@ -11,8 +11,9 @@ const Controls = (props) => {
         <ControlButton
           onClick={props.clickHandler}
           key={index}
-          value={control.text}
+          value={control.value}
           text={control.text}
+          isActive={currentMood == control.value}
         />
       ))}
     </div>
