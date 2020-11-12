@@ -4,6 +4,15 @@
 @import "./4-elements/*.scss";
 @import "./5-components/*.scss";
 
+
+#root {
+  height: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
 * {
   font-size: 2rem;
 }
