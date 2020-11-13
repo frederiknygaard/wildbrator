@@ -16,17 +16,53 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
+    this.vibrateInterval = null;
+  }
+
+  componentDidMount() {
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    // Then we set the value in the --vh custom property to the root of the document
+    //document.querySelector('.wrapper').style.setProperty('height', `${window.innerHeight}px`);
+  }
+
+    
+
+  // Starts vibration at passed in level
+  startVibrate(duration) {
+      navigator.vibrate(duration);
+  }
+
+  // Stops vibration
+  stopVibrate() {
+      // Clear interval and stop persistent vibrating
+      if(this.vibrateInterval) clearInterval(this.vibrateInterval);
+      navigator.vibrate(0);
+  }
+
+  // Start persistent vibration at given duration and interval
+  // Assumes a number value is given
+  startPersistentVibrate(duration, interval) {
+      this.vibrateInterval = setInterval(function() {
+          startVibrate(duration);
+      }, interval);
   }
 
   selectMood(e) {
     let currentMood = e.target.dataset.value;
     currentMood = this.state.currentMood != currentMood ? currentMood : null;
+
+    if (currentMood) {
+      this.startVibrate(10000)
+    } else {
+      this.stopVibrate();
+    }
+    
     this.setState({ currentMood })
-    //console.log(mood)
   }
 
   setAngle(angle) {
-    console.log(angle)
+    //console.log(angle)
     //this.setState({ angle })
     //console.log(angle)
   }
